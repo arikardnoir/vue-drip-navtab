@@ -1,0 +1,36 @@
+{
+  "private": false,
+  "name": "@arikardnoir/vue-drip-navtab",
+  "version": "1.0.27",
+  "description": "Vue Drip Navtab is solution that could help you about use Tabs with VueJS 🎨",
+  "repository": "https://github.com/arikardnoir/vue-drip-navtab.git",
+  "keywords": [
+    "#vue",
+    "#drip",
+    "#componenets",
+    "#ui",
+    "#navtab"
+  ],
+  "author": "Aristoteles Lopes",
+  "license": "MIT",
+  "main": "./src/component.vue",
+  "scripts": {
+    "dev": "vue serve component.vue",
+    "build": "bili --name index --plugin vue --vue.css false"
+  },
+  "files": [
+    "dist/*",
+    "src/*",
+    "fonts/*",
+    "img/*"
+  ],
+  "bugs": {
+    "url": "https://github.com/arikardnoir/vue-drip-navtab/issues"
+  },
+  "homepage": "https://github.com/arikardnoir/vue-drip-navtab#readme",
+  "devDependencies": {
+    "bili": "^4.8.1",
+    "rollup-plugin-vue": "^5.0.1",
+    "vue-template-compiler": "^2.6.10"
+  }
+}

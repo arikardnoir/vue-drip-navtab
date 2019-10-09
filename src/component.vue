@@ -2,12 +2,12 @@
   <div>
     <div class="tabs">
       <ul>
-        <li v-for="(tab, i) in tabs" v-bind:style="[tab.isActive == true ? baseStyles : '']" :class="{'is-active': tab.isActive }" :key="i">
+        <li v-for="(tab, i) in tabs" v-bind:style="tab.isActive == true ? styleTabHeader : ''" :class="{'is-active': tab.isActive }" :key="i">
           <a :href="tab.href" class="button-tab" v-bind:style="[overrideStyles]" @click="selectTab(tab)">{{ tab.name }}</a>
         </li>
       </ul>
     </div>
-    <div class="tabs-details" v-bind:style="[this.baseStyles]">
+    <div class="tabs-details" v-bind:style="styleTabBody">
       <slot></slot>
     </div>
   </div>
@@ -24,13 +24,18 @@ export default {
     tabTextColor: {
        type: String,
        default: ''
+    },
+    backgroundColor: {
+       type: String,
+       default: ''
     }
   },
   data () {
     return {
       tabs: [],
       baseStyles: {
-         border: '1px solid ' + this.borderColor 
+         border: '1px solid ' + this.borderColor,
+         background:  this.backgroundColor
       },
       overrideStyles: {
         color: this.tabTextColor
@@ -45,6 +50,19 @@ export default {
       this.tabs.forEach(tab => {
         tab.isActive = tab.name === selectedTab.name
       })
+    }
+  },
+  computed: {
+    styleTabHeader: function() {
+        return {
+        '--color-border': '1px solid ' + this.borderColor,
+        '--color-border-bottom': '1px solid ' + this.backgroundColor
+        }
+    },
+    styleTabBody: function() {
+        return {
+        '--color-background-color': this.backgroundColor 
+        }
     }
   }
 }
@@ -68,7 +86,7 @@ a{
   width: 13%;
   height: 50px;
   /* max-width: calc(100% / 3 - 3px); */
-  /* border-bottom: 1px solid #969eb8; */
+  border-bottom: var(--color-background-color);
   border-radius: 2px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -105,6 +123,7 @@ a{
   padding-left: 30px;
   padding-top: 30px;
   padding-bottom: 30px;
+  background: var(--color-background-color);
   border: 1px solid #969eb8;
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;

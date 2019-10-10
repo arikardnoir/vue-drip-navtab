@@ -3,7 +3,7 @@
     <div class="tabs">
       <ul>
         <li v-for="(tab, i) in tabs" v-bind:style="tab.isActive == true ? styleTabHeader : ''" :class="{'is-active': tab.isActive }" :key="i">
-          <a :href="tab.href" class="button-tab" v-bind:style="[overrideStyles]" @click="selectTab(tab)">{{ tab.name }}</a>
+          <a :href="tab.href" class="button-tab" v-bind:style="styleTabTextColor" @click="selectTab(tab)">{{ tab.name }}</a>
         </li>
       </ul>
     </div>
@@ -32,14 +32,7 @@ export default {
   },
   data () {
     return {
-      tabs: [],
-      baseStyles: {
-         border: '1px solid ' + this.borderColor,
-         background:  this.backgroundColor
-      },
-      overrideStyles: {
-        color: this.tabTextColor
-      }
+      tabs: []
     }
   },
   created () {
@@ -54,15 +47,22 @@ export default {
   },
   computed: {
     styleTabHeader: function() {
-        return {
-        '--color-border': '1px solid ' + this.borderColor,
-        '--color-border-bottom': '1px solid ' + this.backgroundColor
-        }
+      return {
+        'border': '1px solid ' + this.borderColor,
+        'border-bottom': '2px solid ' + this.backgroundColor,
+        'color': this.tabTextColor
+      }
     },
     styleTabBody: function() {
-        return {
-        '--color-background-color': this.backgroundColor 
-        }
+      return {
+        'background-color': this.backgroundColor,
+        'border': '1px solid ' + this.borderColor
+      }
+    },
+    styleTabTextColor: function() {
+      return {
+        'color': this.tabTextColor
+      }
     }
   }
 }
@@ -75,7 +75,7 @@ export default {
 a{
   font-family: "Montserrat Regular";
   display: inline-block;
-  text-decoration: none;   
+  text-decoration: none;
 }
 .tabs ul {
   display: flex;
@@ -85,8 +85,6 @@ a{
 .tabs ul li {
   width: 13%;
   height: 50px;
-  /* max-width: calc(100% / 3 - 3px); */
-  border-bottom: var(--color-background-color);
   border-radius: 2px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -96,6 +94,7 @@ a{
 
 .tabs ul li.is-active {
   border: 1px solid #969eb8;
+  border-bottom: #fff;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
 }

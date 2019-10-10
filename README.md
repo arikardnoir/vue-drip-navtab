@@ -24,7 +24,7 @@ npm i @arikardnoir/vue-drip-tab
 Import, register and place the component in your Vue app.
 ```html
 <template>
-  <VueDripNavTab borderColor="#1da139" tabTextColor="#911616">
+    <VueDripNavTab borderColor="#2c3e50" tabTextColor="green" backgroundColor="#fff">
         <VueDripTab name="Normal" :selected="true">
             <p>Test 1</p>
             <p>Test 2</p>
@@ -51,17 +51,18 @@ export default {
 ## Props
 Components Property that make him cool
 
-|Name              |Type          |Default           |Description                                           |
-|------------------|--------------|------------------|------------------------------------------------------|
-|name              |String        |                  |Tabs name
-|selected          |Boolean       |false             |props to choose default Tab
-|borderColor       |String        |                  |change the borders colors
-|tabTextColor      |String        |                  |change the Tab text color
+|Name              |Type          |Default           |Required        |Description                                           |
+|------------------|--------------|------------------|----------------|-------------------------------------|
+|name              |String        |                  |                |tabs name
+|selected          |Boolean       |false             |                |props to choose default Tab
+|borderColor       |String        |                  |true            |change the borders colors
+|tabTextColor      |String        |                  |true            |change the Tab text color
+|backgroundColor   |String        |                  |true            |change the navtab background color
 
 
 ## Examples
 Some examples that how you could use this component
 
-![picture](./img/screen1-1.png)  
+![picture](./img/collapse.png)  
 
-![picture](./img/screen2-1.png)   
+![picture](./img/collapse-code.png)   

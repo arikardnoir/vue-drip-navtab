@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@arikardnoir/vue-drip-navtab",
-  "version": "1.0.28",
+  "version": "1.0.30",
   "description": "Vue Drip Navtab is solution that could help you about use Tabs with VueJS 🎨",
   "repository": "https://github.com/arikardnoir/vue-drip-navtab.git",
   "keywords": [

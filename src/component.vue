@@ -19,14 +19,17 @@ export default {
   props: {
     borderColor: {
         type: String,
+        required:true,
         default: ''
     },
     tabTextColor: {
        type: String,
+       required:true,
        default: ''
     },
     backgroundColor: {
        type: String,
+       required:true,
        default: ''
     }
   },
